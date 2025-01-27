@@ -1,7 +1,22 @@
 import { View, StyleSheet } from "react-native";
 import Header from "../../components/Header";
+import fetchApi from "../../utils/fetch";
+import { useState, useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    const loadTodaysImage = async () => {
+      try {
+        const todaysImage = await fetchApi();
+        console.log(todaysImage);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    loadTodaysImage().catch(null);
+  }, []);
+
   return (
     <View style={styles.container}>
       <Header />

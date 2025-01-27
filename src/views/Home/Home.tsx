@@ -1,16 +1,22 @@
-import { View, StyleSheet } from "react-native";
-import Header from "../../components/Header";
-import fetchApi from "../../utils/fetch";
 import { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
+
+import Header from "../../components/Header";
+import TodaysImage from "../../components/TodaysImage";
+import fetchApi from "../../utils/fetch";
+import { PostImage } from "../../types";
 
 const Home = () => {
+  const [todaysImage, setTodaysImage] = useState<PostImage>({});
+
   useEffect(() => {
     const loadTodaysImage = async () => {
       try {
-        const todaysImage = await fetchApi();
-        console.log(todaysImage);
+        const todaysImageResponse = await fetchApi();
+        setTodaysImage(todaysImageResponse);
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        setTodaysImage({});
       }
     };
 
@@ -20,6 +26,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Header />
+      <TodaysImage {...todaysImage} />
     </View>
   );
 };

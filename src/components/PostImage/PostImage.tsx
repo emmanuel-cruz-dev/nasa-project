@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { PostImage as PostImageTypes, RouteStackParams } from "../../types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
@@ -20,9 +20,9 @@ const PostImage: FC<PostImageTypes> = ({ title, date, url, explanation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.date}>{date}</Text>
-      <View style={styles.buttonContainer}>
-        <Button title="View" onPress={handleViewPress} />
-      </View>
+      <TouchableOpacity style={styles.button} onPress={handleViewPress}>
+        <Text style={styles.buttonText}>View</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -43,9 +43,17 @@ const styles = StyleSheet.create({
   date: {
     color: "#fff",
   },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
+  button: {
+    alignSelf: "flex-end",
+    backgroundColor: "rgb(33,150,243)",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  buttonText: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 16,
   },
 });
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StatusBar } from "react-native";
 
 import { RouteStackParams } from "../types";
 import Home from "../views/Home";
@@ -18,20 +19,23 @@ const routeScreenDefaultOptions = {
 
 const Routes = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={routeScreenDefaultOptions}
-        />
-        <Stack.Screen
-          name="Detail"
-          component={Detail}
-          options={routeScreenDefaultOptions}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="rgba(7,26,93,255)" />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={routeScreenDefaultOptions}
+          />
+          <Stack.Screen
+            name="Detail"
+            component={Detail}
+            options={routeScreenDefaultOptions}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 };
 

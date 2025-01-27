@@ -8,12 +8,14 @@ import Detail from "../views/Detail";
 const Stack = createNativeStackNavigator<RouteStackParams>();
 
 const Routes = () => {
-  <NavigationContainer>
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Detail" component={Detail} />
-    </Stack.Navigator>
-  </NavigationContainer>;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Detail" component={Detail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default Routes;

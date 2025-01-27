@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
+import { format, sub } from "date-fns";
 
 import Header from "../../components/Header";
 import TodaysImage from "../../components/TodaysImage";
@@ -20,7 +21,21 @@ const Home = () => {
       }
     };
 
+    const loadLast5DaysImages = async () => {
+      try {
+        const date = new Date();
+        const todaysDate = format(date, "yyyy-MM-dd");
+        const fiveDaysAgo = format(sub(date, { days: 5 }), "yyyy-MM-dd");
+
+        console.log(todaysDate);
+        console.log(fiveDaysAgo);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     loadTodaysImage().catch(null);
+    loadLast5DaysImages().catch(null);
   }, []);
 
   return (

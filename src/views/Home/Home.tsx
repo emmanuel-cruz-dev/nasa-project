@@ -1,7 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
-import { format, set, sub } from "date-fns";
+import { format, sub } from "date-fns";
 
 import Header from "../../components/Header";
 import TodaysImage from "../../components/TodaysImage";

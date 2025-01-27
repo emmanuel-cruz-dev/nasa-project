@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { format, set, sub } from "date-fns";
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
+    backgroundColor: "rgba(7,26,93,255)",
   },
 });
 
